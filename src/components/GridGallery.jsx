@@ -2,7 +2,8 @@ import { Card } from "./Card"
 import { Pagination } from "./Pagination"
 
 export const GridGallery = (category) => {
-    category = [
+    console.log(category, 'son las cat del gridGarelly')
+    const photos = [
         {
             photo: 'url1',
             description: 'nananananna',
@@ -14,16 +15,24 @@ export const GridGallery = (category) => {
             url: 'http....'
         },
         {
-            photo: 'url3',
+            photo: 'url',
             description: 'nananananna',
             url: 'http....'
         }
     ]
+
+
     return (
         <>
-            <div>GridGallery</div>
-            <Card />{/* tiene que ser llamado dentro del map y pinta cada elemento  */}
+            {
+                photos.map((element) => (
+                    <article key={element.photo}>
+                        <Card {...element} />
+                    </article>
+                ))
+            }
             <Pagination />
+
         </>
     )
 }
