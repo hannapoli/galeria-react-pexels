@@ -11,11 +11,15 @@ dist
 dist-ssr
 *.local
 
+# Yarn Berry (Yarn 2/3/4)
 .yarn/*
 !.yarn/releases
 !.yarn/plugins
 !.yarn/sdks
+!.yarn/patches
 !.yarn/pnp.cjs
+!.yarn/unplugged
+!.yarn/build-state.yml
 
 
 # Editor directories and files
