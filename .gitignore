@@ -11,6 +11,13 @@ dist
 dist-ssr
 *.local
 
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/pnp.cjs
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -44,8 +51,5 @@ desktop.ini     # Windows
 
 # Otros archivos ocultos
 *.DS_Store
-.idea/          # Si usas JetBrains IDEs
+.idea/          # JetBrains IDEs
 *.iml
-
-# Variables del entorno
-.env
