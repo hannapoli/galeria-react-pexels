@@ -27,11 +27,100 @@ body {
   overflow-x: hidden;
 }
 
-h1 {
-  font-size: 2rem;
-  line-height: 1.1;
-}
-
 button, .input-btn {
   cursor: pointer;
 }
+
+main {
+    padding-block: 2em;
+}
+
+img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    font-style: italic;
+}
+
+h2, h3 {
+    padding: 0.2em;
+    margin: 0.2em;
+}
+
+h1 {
+    padding: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 0.8em;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    color: #1e3a5f;
+}
+
+p {
+    font-size: 1rem;
+}
+
+button,
+.input-btn {
+    background: #1e3a5f;
+    border: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+button:hover,
+.input-btn:hover {
+    background: #2c5282;
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.4);
+}
+
+.flexContainer {
+    display: flex;
+}
+
+.fullContainer {
+    width: 100%;
+    background: #1e3a5f;
+    height: 4em;
+}
+
+.fullContainer a,
+.fullContainer p {
+    color: white;
+}
+
+.mainContainer {
+    flex-direction: column;
+    margin: 0 auto 5.2em auto;
+    max-width: 90%;
+}
+
+/* ===============================
+            992px
+=================================== */
+@media screen and (min-width:992px) {
+    .mainContainer {
+        max-width: 1200px;
+    }
+}
+
+/* 992px */
+
+/* ===============================
+            1200px
+=================================== */
+
+@media screen and (min-width:1200px) {
+    .mainContainer {
+        max-width: 1400px;
+    }
+}
+
+/* 1200px+ */

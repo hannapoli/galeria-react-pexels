@@ -1,3 +1,4 @@
+import './Header.css'
 import { useState } from 'react'
 
 export const Header = () => {
@@ -6,7 +7,10 @@ export const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
-
+  /* me escuchas ? 
+    NO,NO ME FUIONAN LAS MUSCULAS AQUÍ, NO SÉ POR QUE
+    ....ahora sí, hay un lag, algo va leNto y  No se escribe todo
+   */
   return (
     <header className="fullContainer">
       <nav>

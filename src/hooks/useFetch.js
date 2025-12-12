@@ -5,7 +5,7 @@ const client = createClient(key);
 
 export const usePexels = (query) => {
 
-    client.photos.search({ query, per_page: 12 })
+    client.photos.search({ query: query, per_page: 12 }) //size: 'medium', locale: "es-ES"
         .then(photos => {
             console.log(photos)
             return photos

@@ -1,0 +1,29 @@
+.searchForm {
+    justify-content: center;
+    margin: 0.8em;
+}
+
+.search,
+.input-btn {
+    line-height: 2rem;
+    border-radius: 8px;
+    margin: 0.5em;
+    padding-top: 0.2em;
+    padding-inline: 0.8em;
+    border: 2px solid #bdb9b9;
+    transition: all 0.3s ease;
+}
+
+.search {
+    width: 60%
+}
+.search:focus {
+    outline: none;
+    border-color: #1e3a5f;
+    box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+}
+
+.input-btn {
+    color: white;
+    font-weight: 600;
+}

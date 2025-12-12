@@ -1,50 +1,45 @@
-import { GridGallery } from "./GridGallery";
+import './GridGallery.css'
+import {GridGallery} from "./GridGallery"
 import { Search } from "./Search";
 import { useState } from "react";
 
 
 export const Gallery = () => {
     
-    const [arrayCategories, setArrayCategories] =
-        useState(['cats', 'anime', 'cars']);
+    const [arrayCategories, setArrayCategories] = useState([]);
         
     const [error, setError] = useState(''); 
     
     const handleNewCategory = (newCategory) => {
         setError('');
-        
-        const aux = newCategory.trim();
-        const lowerAux = aux.toLowerCase();
-
-        if (lowerAux.length > 0) {
-            
-            const isDuplicate = arrayCategories.some(cat => cat.toLowerCase() === lowerAux);
-
+  
+            const isDuplicate = arrayCategories.some(cat => cat === newCategory);
             if (!isDuplicate) {
-                setArrayCategories([aux, ...arrayCategories]);
+               
+                setArrayCategories([newCategory, ...arrayCategories]);
                 return true;
             } else {
-                setError(`Búsqueda realizada, pero la categoría '${aux}' ya existe.`);
-                return false;
+                setError(`Búsqueda realizada, pero la categoría '${newCategory}' ya existe.`);
+                return true;
             }
-        }
-        return false;
+        
+        return true;
     }
 
     return (
         <>
-            <h2>Imágenes por categoría</h2>
+            <h2>Busca las imágenes por categoría</h2>
             
             <Search onNewCategory={handleNewCategory} />
             
-            {
-                arrayCategories.map((element) => (
+            {   arrayCategories.length > 0 ? arrayCategories.map((element) => (
                     <section key={element} className="gridGallery"> 
-                        <GridGallery categoryName={element.photos} />
+                        <GridGallery categoryName={element.value} />
                     </section>
                 ))
+                : <p>No hay imágenes de esta categoría.</p>  //añadir clase del error (visible/not visible)
             }
-            {/* <Error error={error} /> */}
+            
         </>
     )
 }
