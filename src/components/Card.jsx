@@ -1,17 +1,19 @@
-export const Card = ({ photo, photographer, url }) => {
+import './Card.css'
+
+export const Card = ({ photo }) => {
+    const {alt,url, photographer,src}=photo
+    const {original, medium} =src
     return (
         <>
+              <article>
+                <img className ="card" src={medium} alt={alt}/>
+            </article>
             <article>
-                <p>{photo}</p>
-                <p>{photographer}</p>
-                <p>{url}</p>
+                <p>Autor: {photographer}</p>
+                <p>Descripcion: {alt}</p>
             </article>
 
-            <article>
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.xtrafondos.com%2Fwallpapers%2Froronoa-zoro-de-one-piece-12873.jpg&f=1&nofb=1&ipt=b45107c60e74e3ae1c0c5f8208bb2c104841f972bf0c034156f6632dedcd7620" alt="" />
-                <p>'Descripción'</p>
-                <p>'url'</p>
-            </article>
+      
         </>
 
     )

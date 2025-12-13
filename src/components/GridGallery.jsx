@@ -5,22 +5,22 @@ import {usePexels}from '../hooks/useFetch'
 
 
 export const GridGallery = ({categoryName}) => {
-    console.log(categoryName,'esto es el dato que le pasamos al fetchHook')
     const fetchHook = usePexels(categoryName);
-    const {photos}=fetchHook
-    console.log(photos,'jsuto antes de pasarlo a card')
-
+    const {photos, cargando}=fetchHook;
+    console.log(photos)
 
     return (
-        <>
-            {
-                photos.map((element) => (
-                    <article key={element.id}>
-                        <Card {...element} />
-                    </article>
-                ))
-            }
-            <Pagination />
-        </>
-    )
+            <>
+                {
+                    cargando
+                    ? <p>cargando</p>
+                    : photos.map((photo) => (
+                            <article key={photo.id}>
+                                <Card  photo={photo} />
+                            </article>
+                        ))
+                }
+                <Pagination clase={categoryName} />
+            </>
+        )
 }

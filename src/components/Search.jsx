@@ -1,23 +1,22 @@
 import "./Search.css"
-import { useState } from "react";
 import {useForm} from "../hooks/useForm"
 
 export const Search = ({onNewCategory}) => {
-    let [category, setCategory] = useState('');
- 
-    const formHook = useForm(category);
-    if(!formHook.ok){
-        console.log(formHook.error,'desde el if del formHook',formHook.value)
-    }
+    const {validate, error} = useForm("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const {value} = e.target.search;
-        setCategory(value); 
-        onNewCategory(formHook.value)
-    }
-    return (
+        const value = e.target.search.value;
 
+        const validated = validate(value);
+        if (!validated.ok) {
+            return;
+        }
+        onNewCategory(validated.result);
+        e.target.reset();
+    }
+    
+    return (
         <form onSubmit={handleSubmit} className="searchForm flexContainer">
             <input
                 type="text"

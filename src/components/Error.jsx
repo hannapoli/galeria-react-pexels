@@ -1,5 +1,7 @@
+import "./Error.css"
+
 export const Error = (error) => {
   return (
-    <div>{error}</div>
+    <p className="errorDom">{error}</p>
   )
 }

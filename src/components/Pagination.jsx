@@ -1,6 +1,12 @@
-export const Pagination = () => {
+import "./Pagination.css"
+
+export const Pagination = ({clase}) => {
+ 
   return (
-    <div>Pagination</div>
+    <>
+    <div className={clase}>Pagination: 1-2-3-4-5-6-7</div>
+    {/* <Button /> */}
+    </>
   )
 }
 

@@ -10,21 +10,17 @@ export const Gallery = () => {
         
     const [error, setError] = useState(''); 
     
-    const handleNewCategory = (newCategory) => {
-        setError('');
-  
-            const isDuplicate = arrayCategories.some(cat => cat === newCategory);
-            if (!isDuplicate) {
-               
-                setArrayCategories([newCategory, ...arrayCategories]);
-                return true;
-            } else {
-                setError(`Búsqueda realizada, pero la categoría '${newCategory}' ya existe.`);
-                return true;
-            }
-        
-        return true;
+   const handleNewCategory = (newCategory) => {
+    if (!newCategory) return;
+
+    if (arrayCategories.includes(newCategory)) {
+        setError(`Búsqueda realizada, pero la categoría '${newCategory}' ya existe.`);
+        return;
     }
+    setArrayCategories([newCategory, ...arrayCategories]);
+    setError('');
+}
+
 
     return (
         <>
@@ -34,7 +30,7 @@ export const Gallery = () => {
             
             {   arrayCategories.length > 0 ? arrayCategories.map((element) => (
                     <section key={element} className="gridGallery"> 
-                        <GridGallery categoryName={element.value} />
+                        <GridGallery categoryName={element} />
                     </section>
                 ))
                 : <p>No hay imágenes de esta categoría.</p>  //añadir clase del error (visible/not visible)
