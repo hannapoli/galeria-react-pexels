@@ -1,10 +1,10 @@
 import "./Pagination.css"
 import {Button} from "./Button"
 
-export const Pagination = ({clase,pag=1,callReturn}) => {
-  const primeClas = clase
-  const pagChange = pag;
-  const showPag = 10;
+export const Pagination = ({clase,callReturn,currentPage}) => {
+
+  const pagChange = currentPage;
+  let showPag = 10;
   const half = Math.floor(showPag / 2);
 
   let min = pagChange-half
@@ -19,23 +19,23 @@ export const Pagination = ({clase,pag=1,callReturn}) => {
   const aux =Array.from({length: max - min + 1}, (_,i) => min + i)
 
   const handleClick =(valor)=>{
-     callReturn(primeClas,valor)
+     callReturn(valor)
   }
     
 
 
   return (
     <>
-      <Button text={`<`} className={`pageBtn ${clase}`}/>
+      <Button text={`<`} className={`pageBtn ${clase}`} newPag={handleClick}/>
     {
      
       aux.map((elemento)=>(
-        <Button key={elemento} text={elemento} className={`${clase} pageBtn`} newPag={handleClick}/>
+        <Button key={elemento} text={elemento} className={`${elemento===currentPage?"activo":""} pageBtn`} newPag={handleClick}/>
         
       ))
       
     }
-      <Button text={`>`} className={`pageBtn ${clase}`}/>
+      <Button text={`>`} className={`pageBtn ${clase}`} newPag={handleClick}/>
     </>
   )
 }

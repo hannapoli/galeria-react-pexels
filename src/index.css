@@ -32,6 +32,9 @@ button,
     cursor: pointer;
 }
 
+.activo{
+    opacity: 50%;
+}
 main {
     padding-block: 2em;
 }
@@ -79,7 +82,7 @@ button,
 
 button:hover,
 .input-btn:hover,
-.pageBtn:hover {
+.pageBtn:hove {
     background: #2c5282;
     box-shadow: 0 4px 12px rgba(30, 58, 95, 0.4);
 }

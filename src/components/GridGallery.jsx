@@ -13,8 +13,15 @@ export const GridGallery = ({ categoryName }) => {
     const { photos, cargando, error } = useCallApi(categoryName,pag);
     
     
-    const  callAux =(query,pag)=>{
-        setPag(pag)
+    const  callAux =(pag)=>{
+        if(pag==='<'){
+            setPag(pag=>pag-1)
+        }else if (pag==='>'){
+            setPag(pag=>pag+1)
+        }else{
+            setPag(pag)
+        }
+        
     }
 
     return (
@@ -32,7 +39,7 @@ export const GridGallery = ({ categoryName }) => {
             }
             </div>
             <div className='pagination'>
-                <Pagination clase={categoryName} callReturn={callAux} />
+                <Pagination clase={categoryName} callReturn={callAux} currentPage={pag}/>
             </div>
         </>
     )
