@@ -1,10 +1,21 @@
 import "./Search.css"
 import {useForm} from "../hooks/useForm"
 import { Error } from "./Error"
+/**
+ * El componente de búsqueda de categorías de imágenes.
+ * @param {Object} props - props del componente.
+ * @param {Function} props.onNewCategory - la función callback para manejar la nueva categoría.
+ * @param {string} props.error - mensaje de error de la galería.
+ * @returns {JSX.Element} componente del formulario de búsqueda.
+*/
 //Añadimos las variables galleryError y formError para distinguir los errores del formulario como de la galería
 export const Search = ({onNewCategory, error: galleryError}) => {
     const {validate, error: formError} = useForm("");
 
+    /**
+     * Maneja el envío del formulario y valida la entrada.
+     * @param {Event} e - evento de envío del formulario.
+     */
     const handleSubmit = (e) => {
         e.preventDefault();
         const value = e.target.search.value;

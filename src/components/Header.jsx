@@ -1,21 +1,25 @@
 import './Header.css'
 import { useState } from 'react'
 
+/**
+ * Muestra el encabezado de la aplicación con navegación.
+ * @returns {JSX.Element} el componente Header.
+ */
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  /**
+   * Cambia el estado del menú de navegación (visible o oculto).
+   */
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
-  /* me escuchas ? 
-    NO,NO ME FUIONAN LAS MUSCULAS AQUÍ, NO SÉ POR QUE
-    ....ahora sí, hay un lag, algo va leNto y  No se escribe todo
-   */
+
   return (
     <header className="fullContainer">
       <nav>
         <a href="#" className="nav-logo">Galería Pexels</a>
-        
+
         <div className="nav-hamburger" onClick={toggleMenu}>
           <span></span>
           <span></span>

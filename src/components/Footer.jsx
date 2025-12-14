@@ -1,5 +1,9 @@
 import "./Footer.css";
 
+/**
+ * Muestra el pie de página de la aplicación.
+ * @returns {JSX.Element} el componente Footer.
+ */
 export const Footer = () => {
     return (
         <footer className="fullContainer flexContainer">
