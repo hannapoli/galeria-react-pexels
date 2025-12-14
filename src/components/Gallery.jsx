@@ -4,13 +4,20 @@ import { Search } from "./Search";
 import { Error } from "./Error";
 import { useState } from "react";
 
-
+/**
+ * El componente Gallery que maneja la búsqueda y muestra galerías en cuadrícula (grid).
+ * @returns {JSX.Element} componente Gallery con búsqueda y galerías en cuadrícula (grid).
+ */
 export const Gallery = () => {
 
     const [arrayCategories, setArrayCategories] = useState([]);
 
     const [error, setError] = useState('');
 
+    /**
+     * Maneja la agregación de una nueva categoría a la galería.
+     * @param {string} newCategory - el nombre de la categoría a agregar.
+     */
     const handleNewCategory = (newCategory) => {
         if (!newCategory) return;
 
