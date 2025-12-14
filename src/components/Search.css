@@ -23,6 +23,11 @@
     box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
 }
 
+.search-error {
+    border-color: #dc3545;
+    background-color: #ffe6e6;
+}
+
 .input-btn {
     color: white;
     font-weight: 600;

@@ -7,33 +7,34 @@ const key = 'rawt5OeZl2WNQx0T5DQZTVumgm6grudFz4JQL76gksjYumIW6iH5ToXD'
 const client = createClient(key);
 
 //"https://api.pexels.com/v1/curated?page=3&per_page=40"
-export const usePexels = (query,page=1) => {
+export const usePexels = (query, page = 1) => {
     console.log(query, 'en usePexels')
     const [photos, setPhotos] = useState([]);
     const [cargando, setCargando] = useState(true);
+    const [error, setError] = useState(null);
 
-        useEffect(() => {
-            if(!query){
-                console.log('Escribe una palabra en el buscador para ver las imágenes.') 
-                return;
-            }
-            setCargando(true);
-            client.photos
-                .search({ query, page:1,per_page: 12 }) //size: 'medium', locale: "es-ES"
-                .then((response) => {
-                    setPhotos(response.photos);
-                })
-                .catch((error)=>{
-                    console.log(error,' error en el useFetch')
-                    return error;
-                })
-                .finally(() => {
-                    setCargando(false);
-                })
-            }, [query]);
+    useEffect(() => {
+        if (!query) {
+            console.log('Escribe una palabra en el buscador para ver las imágenes.')
+            return;
+        }
+        setCargando(true);
+        client.photos
+            .search({ query, page: 1, per_page: 12 })
+            .then((response) => {
+                setPhotos(response.photos);
+            })
+            .catch((err) => {
+                console.log(err)
+                setError('Error del servidor: no se ha podido cargar las fotos.');
+            })
+            .finally(() => {
+                setCargando(false);
+            });
+    }, [query, page]);
 
-        
-            return {photos, cargando};
+
+    return { photos, cargando, error };
 }
 
 
