@@ -78,7 +78,8 @@ button,
 }
 
 button:hover,
-.input-btn:hover {
+.input-btn:hover,
+.pageBtn:hover {
     background: #2c5282;
     box-shadow: 0 4px 12px rgba(30, 58, 95, 0.4);
 }

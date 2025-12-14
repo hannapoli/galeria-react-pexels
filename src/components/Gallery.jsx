@@ -32,7 +32,7 @@ export const Gallery = () => {
             {error && <Error error={error} />}
 
             {arrayCategories.length > 0 ? arrayCategories.map((element) => (
-                <section key={element} className="gridGallery">
+                <section key={element}>
                     <GridGallery categoryName={element} />
                 </section>
             ))

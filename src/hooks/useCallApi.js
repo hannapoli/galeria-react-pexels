@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 
-const key = 'xbetsmIHkKyH66M6d3D2QdkXkewdCIjr96pDsSaRxKvhiO317k53RgfV';
-// const key = '8LJXgUSjiFKXngm6n7uTYf4SaYMiOj6OMmLRXpmzH6OP2WxDML3gwFDH';
-//const key = 'rawt5OeZl2WNQx0T5DQZTVumgm6grudFz4JQL76gksjYumIW6iH5ToXD'
+const key = import.meta.env.VITE_PEXELS_API_KEY;
 
 const urlBase = `https://api.pexels.com/v1/`;
 
@@ -12,7 +10,7 @@ export const useCallApi = (query, page = 1) => {
     const [cargando, setCargando] = useState(false);
     const [error, setError] = useState(null);
 
-    const urlGetAllPhotos = `${urlBase}search?query=${query}&size=medium&${page}&per_page=12&locale=es-ES`;
+    const urlGetAllPhotos = `${urlBase}search?query=${query}&size=medium&page=${page}&per_page=12&locale=es-ES`;
 
     useEffect(() => {
         if (!query) {
