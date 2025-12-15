@@ -32,9 +32,6 @@ button,
     cursor: pointer;
 }
 
-.activo{
-    opacity: 50%;
-}
 main {
     padding-block: 2em;
 }
@@ -59,9 +56,8 @@ h3 {
 }
 
 h1 {
-    padding: 0.5em;
-    margin-top: 1em;
-    margin-bottom: 0.8em;
+    padding: 0.3em;
+    margin-block: 0.4em;
     font-size: 2.5rem;
     line-height: 1.1;
     color: #1e3a5f;
@@ -82,7 +78,7 @@ button,
 
 button:hover,
 .input-btn:hover,
-.pageBtn:hove {
+.pageBtn:hover {
     background: #2c5282;
     box-shadow: 0 4px 12px rgba(30, 58, 95, 0.4);
 }

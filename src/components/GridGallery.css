@@ -6,6 +6,11 @@
     margin: 2em auto;
 }
 
+.gridGallery p {
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
 .pagination {
     display: flex;
     align-items: center;
